@@ -2,7 +2,13 @@ package ru.netology.qa.smartHome;
 
 public class Radio {
 
-    public int currentRadioStation;         //текущая радиостанция
+    private int currentRadioStation;         // текущая радиостанция
+    private int currentSoundVolume;          // текущая громкость звука
+
+    public Radio() {
+        this.currentRadioStation = 0;
+        this.currentSoundVolume = 0;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
@@ -17,7 +23,6 @@ public class Radio {
         }
         currentRadioStation = newCurrentRadioStation;
     }
-
 
     public void nexRadioStation() {     // переключение на следующую станцию
         if (currentRadioStation < 9) {
@@ -35,8 +40,6 @@ public class Radio {
         }
     }
 
-    public int currentSoundVolume;          // тукущая громкость звука
-
     public int getCurrentSoundVolume() {
         return currentSoundVolume;
     }
@@ -48,38 +51,26 @@ public class Radio {
         if (newCurrentSoundVolume > 100) {
             return;
         }
-
         currentSoundVolume = newCurrentSoundVolume;
-
     }
 
-    public void minSoundVolume() {           //мин. громкость
+    public void minSoundVolume() {           // мин. громкость
         currentSoundVolume = 0;
     }
 
-    public void maxSoundVolume() {           // мак.громкость звука
+    public void maxSoundVolume() {           // мак. громкость звука
         currentSoundVolume = 100;
     }
 
-    public void increaseVolume() {          // увелечение громкости +1
+    public void increaseVolume() {          // увеличение громкости +1
         if (currentSoundVolume < 100) {
             currentSoundVolume = currentSoundVolume + 1;
         }
     }
 
-    public void decreaseVolume() {       //уменьшение громкости - 1
+    public void decreaseVolume() {       // уменьшение громкости - 1
         if (currentSoundVolume > 0) {
             currentSoundVolume = currentSoundVolume - 1;
         }
-
     }
-
-
-//    public void noIncreaseInMaximumVolume() {       //не увеличение максимальной громкости
-//    if (currentSoundVolume >= 100) {
-//        currentSoundVolume = 100;
-//    }
-//
-//    }
-
 }

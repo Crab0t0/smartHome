@@ -7,10 +7,10 @@ public class RadioTest {
     @Test
     public void shouldSetRadio() {           //можно установить радиостанцию
         Radio station = new Radio();
-        station.currentRadioStation = 2;
+        station.setCurrentRadioStation(2);
 
         int expected = 2;
-        int actual = station.currentRadioStation;
+        int actual = station.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
