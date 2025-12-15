@@ -1,85 +1,77 @@
 package ru.netology.qa.smartHome;
 
 public class Radio {
+    private int currentRadioStation;
+    private int currentSoundVolume;
+    private int maxRadioStation;
 
-    public int currentRadioStation;         //текущая радиостанция
+    public Radio() {
+        maxRadioStation = 9;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < 0) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
-        currentRadioStation = newCurrentRadioStation;
+        this.currentRadioStation = currentRadioStation;
     }
 
-
-    public void nexRadioStation() {     // переключение на следующую станцию
-        if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
-        } else {
+    public void nextStation() {
+        if (currentRadioStation < maxRadioStation) {
+            currentRadioStation ++;
+            return;
+        }
+        else {
             currentRadioStation = 0;
         }
     }
 
-    public void revRadioStation() {     // переключение на предыдущую станцию
+    public void prevStation() {
         if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
-        } else {
-            currentRadioStation = 9;
+            currentRadioStation --;
+            return;
+        }
+        else {
+            currentRadioStation = maxRadioStation;
         }
     }
-
-    public int currentSoundVolume;          // тукущая громкость звука
 
     public int getCurrentSoundVolume() {
         return currentSoundVolume;
     }
 
-    public void setCurrentSoundVolume(int newCurrentSoundVolume) {
-        if (newCurrentSoundVolume < 0) {
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        if (currentSoundVolume < 0) {
             return;
         }
-        if (newCurrentSoundVolume > 100) {
+        if (currentSoundVolume > 100) {
             return;
         }
-
-        currentSoundVolume = newCurrentSoundVolume;
-
+        this.currentSoundVolume = currentSoundVolume;
     }
 
-    public void minSoundVolume() {           //мин. громкость
-        currentSoundVolume = 0;
-    }
-
-    public void maxSoundVolume() {           // мак.громкость звука
-        currentSoundVolume = 100;
-    }
-
-    public void increaseVolume() {          // увелечение громкости +1
+    public void increaseVolume() {
         if (currentSoundVolume < 100) {
             currentSoundVolume = currentSoundVolume + 1;
+            return;
+        } else {
+            currentSoundVolume = 100;
         }
     }
 
-    public void decreaseVolume() {       //уменьшение громкости - 1
+    public void decreaseVolume() {
         if (currentSoundVolume > 0) {
             currentSoundVolume = currentSoundVolume - 1;
+            return;
+        } else {
+            currentSoundVolume = 0;
         }
-
     }
-
-
-//    public void noIncreaseInMaximumVolume() {       //не увеличение максимальной громкости
-//    if (currentSoundVolume >= 100) {
-//        currentSoundVolume = 100;
-//    }
-//
-//    }
-
 }
