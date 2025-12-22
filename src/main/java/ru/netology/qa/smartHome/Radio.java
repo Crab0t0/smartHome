@@ -3,10 +3,14 @@ package ru.netology.qa.smartHome;
 public class Radio {
     private int currentRadioStation;
     private int currentSoundVolume;
-    private int maxRadioStation;
+    private int maxRadioStation = 9;
+
+    public Radio(int maxRadioStation) {
+
+    }
 
     public Radio() {
-        maxRadioStation = 9;
+
     }
 
     public int getCurrentRadioStation() {
@@ -25,20 +29,18 @@ public class Radio {
 
     public void nextStation() {
         if (currentRadioStation < maxRadioStation) {
-            currentRadioStation ++;
+            currentRadioStation++;
             return;
-        }
-        else {
+        } else {
             currentRadioStation = 0;
         }
     }
 
     public void prevStation() {
         if (currentRadioStation > 0) {
-            currentRadioStation --;
+            currentRadioStation--;
             return;
-        }
-        else {
+        } else {
             currentRadioStation = maxRadioStation;
         }
     }
